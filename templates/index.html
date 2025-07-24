@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enter Your Details - ZeroFraud Payments</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Lottie Animation Script -->
+    <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.6.2/dist/dotlottie-wc.js" type="module"></script>
+</head>
+<body class="bg-white">
+
+    <div class="main-layout-container">
+        <!-- Left Panel for Animation -->
+        <div class="animation-panel">
+            <div class="animation-content">
+                <!-- Increased the max-width of the animation -->
+                <dotlottie-wc 
+                    src="https://lottie.host/8802162b-c853-44fa-b46d-7da4011211b5/IW9VHjfJCE.lottie" 
+                    style="width: 100%; max-width: 550px; height: auto;" 
+                    speed="1" 
+                    autoplay 
+                    loop>
+                </dotlottie-wc>
+            </div>
+        </div>
+
+        <!-- Right Panel for Form -->
+        <div class="form-container-v2">
+            <div class="form-card-v2">
+                <div class="card-header-v2">
+                    <h1 class="header-title-v2">Payment Checkout</h1>
+                    <p class="header-subtitle-v2">Enter your details to proceed</p>
+                </div>
+                <form id="userDetailsForm" class="form-body" novalidate>
+                    <div class="input-group">
+                        <label for="fullname" class="input-label-v2">Full Name</label>
+                        <input type="text" id="fullname" name="fullname" class="input-field-v2" placeholder="e.g., Moon" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="email" class="input-label-v2">Email Address</label>
+                        <input type="email" id="email" name="email" class="input-field-v2" placeholder="e.g., moon.@example.com" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="phone" class="input-label-v2">Mobile Number</label>
+                        <input type="tel" id="phone" name="phone" class="input-field-v2" placeholder="" pattern="[0-9]{10}" required>
+                    </div>
+                     <div class="input-group">
+                        <label for="amount" class="input-label-v2">Amount (₹)</label>
+                        <input type="number" id="amount" name="amount" class="input-field-v2" placeholder="e.g., 8999" min="1" required>
+                    </div>
+                    <button type="submit" id="submitBtn" class="submit-button">
+                        <span class="btn-text">Proceed to Pay</span>
+                        <div class="spinner-icon hidden"></div>
+                    </button>
+                    <p id="formError" class="form-error-text"></p>
+                </form>
+            </div>
+            <p class="footer-text-v2">Powered by CoinPay</p>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

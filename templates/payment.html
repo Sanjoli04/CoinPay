@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirm Payment - ZeroFraud</title>
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-gray-100">
+
+    <div class="payment-container">
+        <!-- Left Panel: Order Details -->
+        <div class="order-details-panel">
+            <div class="flex-grow">
+                <div class="back-button-container">
+                    <a href="/" class="back-button">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+                    </a>
+                </div>
+                <h1 class="company-name">CoinPay</h1>
+                <p id="orderId" class="order-id">Order :</p>
+                <div class="amount-display">
+                    <span id="paymentAmount" class="amount-value">₹0</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="amount-arrow"><path d="m9 18 6-6-6-6"/></svg>
+                </div>
+            </div>
+            <div class="secure-footer">
+                <p>Secured by <span class="font-semibold text-gray-400">ZeroFraud</span> Payments</p>
+            </div>
+        </div>
+
+        <!-- Right Panel: Simplified Confirmation -->
+        <div class="payment-options-panel">
+            <div class="payment-header">
+                <h2 class="payment-title">Order Summary</h2>
+                <a href="/" class="change-link">Change Details</a>
+            </div>
+
+            <!-- Order Summary Details -->
+            <div class="order-summary-container">
+                <div class="summary-item">
+                    <span class="summary-label">Name</span>
+                    <span id="summaryName" class="summary-value"></span>
+                </div>
+                <div class="summary-item">
+                    <span class="summary-label">Email</span>
+                    <span id="summaryEmail" class="summary-value"></span>
+                </div>
+                <div class="summary-item">
+                    <span class="summary-label">Mobile</span>
+                    <span id="summaryMobile" class="summary-value"></span>
+                </div>
+                <div class="summary-item total">
+                    <span class="summary-label">Amount to Pay</span>
+                    <span id="summaryAmount" class="summary-value total-amount"></span>
+                </div>
+            </div>
+            
+            <button id="payNowBtn" class="pay-now-button">Pay Securely</button>
+            <p class="info-text">You will be redirected to Razorpay to complete your payment.</p>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/payment.js') }}"></script>
+</body>
+</html>
